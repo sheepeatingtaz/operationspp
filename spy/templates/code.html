@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Code Check</h1>
+        <div class="row">
+            {% for result in results %}
+                <div class="col-2">
+                    <a class="link-unstyled" href="{% url "spy:clue" result.clue %}">
+                        <div class="card text-white bg-{{ result.colour }}">
+
+                            <span class="code">
+                                {% if result.user_answer %}
+                                    {{ result.user_answer }}
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                            </span>
+
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <p>Select a clue to go to it or </p>
+    <a class="btn btn-danger btn-large" href="{% url "spy:start" %}">Back to Start</a>
+{% endblock %}

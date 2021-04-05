@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block content %}
+    <h2>Directions</h2>
+    <p>{{ directions }}</p>
+    <h2>Clue {{ sequence }}</h2>
+    <p>{{ clue }}</p>
+    {% if image %}
+        <p><img class="img-thumbnail" src="{{ image.url }}"/></p>
+    {% endif %}
+
+{% endblock %}
+{% block footer %}
+    <form action="{% url "spy:clue" sequence %}" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <a href="{% url "spy:code" %}" class="btn btn-secondary">Check Progress</a>
+        <button type="submit" class="btn btn-primary">Next Clue</button>
+    {% endbuttons %}
+    </form>
+{% endblock %}

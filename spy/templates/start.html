@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}{% endblock %}
+{% block content %}
+    <div class="position-absolute top-0 start-0 behind"><img class="img-fluid"
+                                                                  src="{% static 'images/ts.png' %}"/></div>
+    <h1 class="mb-1">Operation: Salt & Pepper Pots</h1>
+    {% if re %}
+        <p><a class="btn btn-warning btn-large" href="{% url "spy:clue" 1%}?restart">Restart Mission</a></p>
+        <p><a class="btn btn-success" href="{% url "spy:clue" current %}">Continue Mission (Clue {{ current }})</a></p>
+    {% else %}
+        <p><a class="btn btn-success btn-large" href="{% url "spy:clue" 1%}">Start Mission</a></p>
+    {% endif %}
+        <p><a class="btn btn-secondary btn-small" target="_blank" href="https://www.google.com/maps/dir//53.7025035,-0.8692136/@53.7027737,-0.9041753,13z">Directions to start</a></p>
+{% endblock %}
