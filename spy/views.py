@@ -111,7 +111,7 @@ class CodeView(TemplateView):
         context['results'] = results
         if any([
             total_correct == clues.count(),
-            not settings.DEBUG
+            settings.DEBUG
         ]):
             context['finished'] = True
         return context
