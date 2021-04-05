@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}{% endblock %}
+{% block content %}
+    <div class="position-absolute top-0 start-0 behind"><img class="img-fluid"
+                                                             src="{% static 'images/ts.png' %}"/></div>
+    <h1 class="mb-1">Operation: Salt & Pepper Pots</h1>
+    <p>Join North Street and walk away from the clock tower. After carefully crossing Aire Street, you should be able to
+        see your starting point.</p>
+    <p> Phew! Well done spies and don’t forget to submit your cracked code by private message to the chief operator for a mention on the page.</p>
+    <p> We’d also love to see pics from your walk (No Spoilers!)</p>
+{% endblock %}
+
+{% block footer %}
+    <a class="btn btn-danger btn-large" href="{% url "spy:code" %}">View The Code</a> &nbsp;
+    <a href="https://m.me/opsaltpepperpots" target="_blank" class="btn btn-primary btn-large"><i
+            class="fab fa-facebook-messenger"></i> Take a screenshot, send it to us</a>
+{% endblock %}

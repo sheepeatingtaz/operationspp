@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% block content %}
+    <h2>Mission Briefing</h2>
+    <p>Calling all spies and wannabe secret agents! We need your help to find the secret code hidden in and around Goole
+        to prevent the demolition of our beloved water towers by an underground organised crime group.</p>
+
+    <p>The walk covers roughly 4 miles and is suitable for pushchairs. Expect it to take 1.5 – 2 hours, depending on how
+        well you know Goole! It is mainly set on flat footpaths so normal walking shoes are fine. It is also dog
+        friendly, although smaller dogs may appreciate being carried over the foot bridge on the docks rather than
+        walking across the metal grid!</p>
+
+    <p>Free parking is available at East Riding Leisure in Goole, adjacent to the Jobcentre Plus. The address is North
+        Street, Goole, East Yorkshire, United Kingdom, DN14 5QB.<a class="btn btn-success btn-small" target="_blank"
+                                                                   href="https://www.google.com/maps/dir//53.7025035,-0.8692136/@53.7027737,-0.9041753,13z"><i
+                class="fad fa-map-marker" aria-hidden="true"></i> Directions</a></p>
+    <p>The code is 24 digits (letters & numbers) and the app will store your answers.</p>
+    <p>Please add photos of your walk to the Facebook page for us all to enjoy.</p>
+
+
+{% endblock %}
+{% block footer %}
+    <a class="btn btn-danger btn-large" href="{% url "spy:start" %}">Back to Start</a> &nbsp;
+    <a href="https://fb.me/opsaltpepperpots" target="_blank" class="btn btn-primary btn-large"><i
+            class="fab fa-facebook"></i> Follow us on Facebook</a>
+{% endblock %}

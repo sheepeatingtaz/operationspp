@@ -12,3 +12,4 @@ class AnswerForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['answer'].label = ""
         self.fields['answer'].widget.attrs['placeholder'] = "Answer"
+        self.fields['answer'].widget.attrs['autocomplete'] = 'off'

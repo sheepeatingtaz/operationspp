@@ -1,4 +1,6 @@
 # Create your views here.
+from django.conf import settings
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, FormView
@@ -87,19 +89,44 @@ class CodeView(TemplateView):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+    def get_results(self):
         clues = TrailStep.objects.all()
         results = []
+        total_correct = 0
         for clue in clues:
             user_answer = self.request.session.get(f"clue_{clue.sequence}", "").upper()
             correct = None
             if user_answer:
                 if user_answer == clue.answer.upper():
                     correct = True
+                    total_correct += 1
                 else:
                     correct = False
             results.append(self.Result(clue.sequence, user_answer, correct))
+        return results, total_correct, clues
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        results, total_correct, clues = self.get_results()
         context['results'] = results
-        print(results)
+        if any([
+            total_correct == clues.count(),
+            not settings.DEBUG
+        ]):
+            context['finished'] = True
         return context
+
+
+class FinishView(CodeView):
+    template_name = 'finish.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        results, total_correct, clues = self.get_results()
+        if total_correct != clues.count():
+            if not settings.DEBUG:
+                return HttpResponseRedirect(reverse_lazy("spy:code"))
+        return super().dispatch(request, *args, **kwargs)
+
+
+class BriefView(CodeView):
+    template_name = 'brief.html'

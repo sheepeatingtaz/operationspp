@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import django_heroku
 from pathlib import Path
+
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'vx@08(h7!9-w%xx0lyjqlqs%dhw5zr$s(_xqj==)jw()$a1k4&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['polar-garden-07963.herokuapp.com',]
+
+ALLOWED_HOSTS = ['polar-garden-07963.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 

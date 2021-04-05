@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.urls import path
 
-from spy.views import CodeView, ClueView, StartView
+from spy.views import CodeView, ClueView, StartView, BriefView, FinishView
 
 app_name = "spy"
 
 urlpatterns = [
     path('', StartView.as_view(), name="start"),
+    path('brief/', BriefView.as_view(), name="brief"),
+    path('finish/', FinishView.as_view(), name="finish"),
     path('<int:clue>/', ClueView.as_view(), name="clue"),
     path('code/', CodeView.as_view(), name="code"),
 ]
