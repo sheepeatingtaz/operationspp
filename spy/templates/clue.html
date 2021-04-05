@@ -9,6 +9,12 @@
     {% if image %}
         <p><img class="img-thumbnail img-fluid" src="{% static image_path %}"/></p>
     {% endif %}
+    {% if hint %}
+        <a href="#" class="btn btn-warning hint-btn"><i class="fad fa-question"></i> Get a hint</a>
+        <div class="hint d-none">
+            <p>{{ hint }}</p>
+        </div>
+    {% endif %}
 
 {% endblock %}
 {% block footer %}
@@ -16,8 +22,9 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
-            <a href="{% url "spy:code" %}" class="btn btn-secondary">Check Progress</a>
-        <button type="submit" class="btn btn-primary">Next Clue</button>
-    {% endbuttons %}
+            <a href="{% url "spy:code" %}" class="btn btn-secondary"><i class="fad fa-th"></i> Check Progress</a>
+
+            <button type="submit" class="btn btn-primary"><i class="fad fa-forward"></i> Next Clue</button>
+        {% endbuttons %}
     </form>
 {% endblock %}

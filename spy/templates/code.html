@@ -25,10 +25,10 @@
 {% endblock %}
 {% block footer %}
     <p>Select a clue to go to it or </p>
-    <a class="btn btn-danger btn-large" href="{% url "spy:start" %}">Back to Start</a> &nbsp;
+    <a class="btn btn-danger btn-large" href="{% url "spy:start" %}"><i class="fad fa-backward"></i> Back to Start</a> &nbsp;
     <a href="https://m.me/opsaltpepperpots" target="_blank" class="btn btn-primary btn-large"><i class="fab fa-facebook-messenger"></i> Take a screenshot, send it to us</a>
     {% if finished %}
 
-    <a class="btn btn-success btn-large" href="{% url "spy:finish" %}">Mission Complete</a> &nbsp;
+    <a class="btn btn-success btn-large" href="{% url "spy:finish" %}"><i class="fad fa-trophy"></i>    Mission Complete</a> &nbsp;
     {% endif %}
 {% endblock %}

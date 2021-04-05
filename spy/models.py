@@ -8,6 +8,7 @@ class TrailStep(models.Model):
     clue = models.TextField()
     image = models.BooleanField(default=False)
     answer = models.CharField(max_length=20)
+    hint = models.TextField(blank=True)
 
     class Meta:
         ordering = ['sequence']

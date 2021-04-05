@@ -5,7 +5,7 @@ from spy.models import TrailStep
 
 
 class TrailStepAdmin(admin.ModelAdmin):
-    list_display = ['sequence', 'directions', 'clue', 'answer']
+    list_display = ['sequence', 'directions', 'clue', 'hint', 'answer']
 
 
 admin.site.register(TrailStep, TrailStepAdmin)
