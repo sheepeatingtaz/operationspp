@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load bootstrap5 %}
+{% load static %}
 {% block content %}
     <h2>Directions</h2>
     <p>{{ directions }}</p>
     <h2>Clue {{ sequence }}</h2>
     <p>{{ clue }}</p>
     {% if image %}
-        <p><img class="img-thumbnail" src="{{ image.url }}"/></p>
+        <p><img class="img-thumbnail img-fluid" src="{% static image_path %}"/></p>
     {% endif %}
 
 {% endblock %}

@@ -44,6 +44,8 @@ class ClueView(FormView):
         context = super().get_context_data(**kwargs)
         for f in ['directions', 'clue', 'image', 'sequence']:
             context[f] = getattr(self.clue, f, None)
+        if context['image']:
+            context['image_path'] = f"images/clue{context['sequence']}.png"
         return context
 
     def get_initial(self):
