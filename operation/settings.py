@@ -24,7 +24,7 @@ SECRET_KEY = 'vx@08(h7!9-w%xx0lyjqlqs%dhw5zr$s(_xqj==)jw()$a1k4&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['polar-garden-07963.herokuapp.com',]
 
 # Application definition
 
